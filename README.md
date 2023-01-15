@@ -32,12 +32,11 @@ Pour la version en ligne: https://assignement-hamza.herokuapp.com/dashboard
 - [x] Hebergement sur Heroku
 
 ## Tâche non réalisé
-- [] On ne peut marquer "rendu" un Assignment qui n'a pas été noté.
-- [] Ajouter un filtre rendu/non rendu
-- [] headers fixe
-- [] La vue détails montrera en plus les remarques, la note s'il a été rendu, la photo du prof, etc.s
-- [] Rendre le tout plus joli.
-- 
+- [ ] On ne peut marquer "rendu" un Assignment qui n'a pas été noté.
+- [ ] Ajouter un filtre rendu/non rendu
+- [ ] headers fixe
+- [ ] La vue détails montrera en plus les remarques, la note s'il a été rendu, la photo du prof, etc.s
+- [ ] Rendre le tout plus joli.
 
 
 
