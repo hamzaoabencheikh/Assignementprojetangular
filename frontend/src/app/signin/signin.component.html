@@ -1,0 +1,9 @@
+
+<div class="container">
+<h1>Sign In</h1>
+<form [formGroup]="signInForm">
+    <input type="username" matInput formControlName="username"  placeholder="Username">
+    <input type="password" matInput formControlName="password"  placeholder="Password">
+    <button (click)="signIn()" type="submit">Sign in</button>
+</form>
+</div>

@@ -1,0 +1,104 @@
+<div class="main-container">
+    <div class="container">
+        <h3 class="title">Add an assignment</h3>
+        <form [formGroup]="assignmentForm">
+            <mat-horizontal-stepper labelPosition="bottom">
+                <mat-step label="Subject">
+                    <mat-form-field >
+                        <mat-label>Choose a subject</mat-label>
+                        <mat-select matInput placeholder="" formControlName="subject" required>	
+                            <mat-option *ngFor="let course of courses" [value]="course.name">
+                                {{ course.name}}
+                              </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-step>
+                <mat-step label="Name">
+                    <mat-form-field>
+                        <input matInput placeholder="Student's name" formControlName="name" required>
+                    </mat-form-field>
+                </mat-step>
+                <mat-step label="Mark">
+                    <mat-form-field>
+                        <input matInput placeholder="" #input (ngModelChange)="validateInput($event,input)" type="number"  formControlName="mark" required>
+                    </mat-form-field>
+                </mat-step>
+                <mat-step label="Remark">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Student's remark" formControlName="remark" required></textarea>
+                    </mat-form-field>
+                </mat-step>
+                <mat-step label="Date">
+                    <mat-form-field>
+                        <input matInput placeholder="Day/Month/Year" formControlName="date" required>
+                    </mat-form-field>
+                </mat-step>
+                <mat-step label="Completed">
+                    <mat-checkbox color="primary" matInput placeholder="" formControlName="completed" required> 
+                        Assignment Completed?
+                      </mat-checkbox>
+                      <button class="submitAssignment" (click)="submitAssignment()"> Submit</button>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </form>
+        <div *ngIf="images.length !== 0" class="images">
+            
+            <img [src]="images.ownerPicture" height="150">
+            <img [src]="images.assignmentPictures" height="150">
+        </div>
+        
+    </div>
+    
+    <p class="title">Assignments</p>
+    <mat-form-field>
+        <mat-label>Filter Table</mat-label>
+        <input matInput placeholder="" search (keyup)="filter($event)">
+    </mat-form-field>
+    <table mat-table matSort [dataSource]="assignments">
+        
+        <ng-container [matColumnDef]="column" *ngFor="let column of columns">
+            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+            <td mat-cell *matCellDef="let emp"> {{emp[column]}} </td>
+        </ng-container>
+        <ng-container matColumnDef="completed">
+            <th mat-header-cell *matHeaderCellDef>completed</th>
+            <td mat-cell *matCellDef="let s"> 
+                <input type="checkbox" (input)="updateAssignment(s._id, !s.completed)" [checked]="s.completed">
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let emprow; columns: displayedColumns;"></tr>
+        
+    </table>
+    
+   
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons>
+  </mat-paginator>
+
+ 
+
+  <p class="title">Add Course</p>
+  
+	<form [formGroup]="courseForm">
+		<mat-horizontal-stepper labelPosition="bottom">
+			<mat-step label="Name" completed="false">
+				<mat-form-field>
+					<input matInput placeholder="Course name" formControlName="name" required>
+				</mat-form-field>
+			</mat-step>
+			<mat-step label="Owner Picture" type="number" completed="false">
+				<button type="button" mat-raised-button (click)="ownerPictureInput.click()">Choose File</button>
+                <input hidden (change)="onOwnerPictureSelected($event)" #ownerPictureInput type="file">
+                <span class="file-name">{{ownerPicture?.name}}</span>
+			</mat-step>
+			<mat-step label="Assignment Pictures" completed="false">
+				
+				<button type="button" mat-raised-button (click)="assignmentPictureInput.click()">Choose File</button>
+                <input hidden (change)="onAssignmentPictureSelected($event)" #assignmentPictureInput type="file">
+                <span class="file-name">{{assignmentPictures?.name}} </span>
+				  <button class="submitButton" (click)="addCourse()"> Add course</button>
+			</mat-step>
+		</mat-horizontal-stepper>
+	</form>
+</div>

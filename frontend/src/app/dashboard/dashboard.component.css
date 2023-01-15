@@ -1,0 +1,66 @@
+.main-container{
+    padding: 40px;
+    background-color: antiquewhite;
+}
+
+.title{
+    font-size: 30px;
+    margin: 25px 0px;
+}
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 5px;
+  }
+
+.filter{
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    border: white;
+    color: white;
+    text-transform: lowercase;
+    margin-left: 10px;
+}
+
+.submitButton{
+    
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    border: white;
+    color: white;
+    text-transform: lowercase;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    height: 100%;
+}
+
+.title{
+    font-size: 30px;
+    margin: 40px 0px;
+}
+.container mat-form-field{
+    width: 100%;
+}
+
+mat-checkbox{
+    width: 100%;
+}
+
+.file-name {
+    margin-left: 1rem; /* or whatever margin you require */
+}
+
+.submitAssignment{
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    border: white;
+    color: white;
+    text-transform: lowercase;
+    width: 100%;
+    margin-top: 30px;
+}

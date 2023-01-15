@@ -1,0 +1,13 @@
+<span>
+  <ul>
+      <li><a routerLink="/signin" >Sign in</a></li>
+      <li><a routerLink="/signup" >Sign up</a></li>
+      <li><a routerLink="/dashboard" >Dashboard</a></li>
+  </ul>
+
+  <span *ngIf="user" class="authContainer">
+    <span class="name"> {{user}}, </span>
+    <span (click)="logout()" class="logout">Logout</span>
+  </span>
+</span>
+<router-outlet></router-outlet>
