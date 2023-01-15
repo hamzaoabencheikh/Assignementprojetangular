@@ -18,5 +18,5 @@ revenir au dossier root et executer: `npm run dev`
 
 Video qui illustre le projet : https://youtu.be/3XXU4A3uRc4
 
-Pour la version en ligne, il faut visiter https://assignement-hamza.herokuapp.com/dashboard
+Pour la version en ligne: https://assignement-hamza.herokuapp.com/dashboard
 
